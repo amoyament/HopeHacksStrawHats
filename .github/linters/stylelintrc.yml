@@ -1,0 +1,45 @@
+extends:
+  - stylelint-config-standard
+  - stylelint-config-recommended
+  - stylelint-config-css-modules
+  - stylelint-config-rational-order
+  - stylelint-config-prettier
+
+plugins:
+  - stylelint-order
+
+rules:
+  # Enforce BEM naming convention
+  "selector-class-pattern": [
+    "^[a-z]+([a-z0-9]?[a-z0-9]+)*(__[a-z]+([a-z0-9]?[a-z0-9]+)*)?(--[a-z]+([a-z0-9]?[a-z0-9]+)*)?$",
+    {
+      "message": "Selector should use BEM naming conventions (selector-class-pattern)"
+    }
+  ],
+  # No ID selectors
+  "selector-max-id": 0,
+  # Lowercase selectors
+  "selector-case": "lower",
+  # Disallow vendor prefixes
+  "property-no-vendor-prefix": true,
+  "value-no-vendor-prefix": true,
+  # Specify a pattern for class selectors
+  "selector-class-pattern": "^[a-z0-9\\-]+$",
+  # Disallow unknown animations
+  "no-unknown-animations": true,
+  # Order properties
+  "order/properties-alphabetical-order": true,
+  # No duplicate selectors
+  "no-duplicate-selectors": true,
+  # No empty source
+  "no-empty-source": true,
+  # No extra semicolons
+  "no-extra-semicolons": true,
+  # No invalid double-slash comments
+  "no-invalid-double-slash-comments": true,
+  # No missing end-of-source newlines
+  "no-missing-end-of-source-newline": true,
+  # No empty first lines
+  "no-empty-first-line": true,
+  # No unknown animations
+  "no-unknown-animations": true
