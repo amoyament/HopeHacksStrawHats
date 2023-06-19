@@ -56,7 +56,7 @@ connection.connect(function (err) {
         lastName VARCHAR(255) NOT NULL,
         password VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL,
-        completed TINYINT(1) NOT NULL DEFAULT 0
+        UNIQUE(email)
     );`;
     connection.query(createUser, function (err, results, fields) {
       if (err) {
