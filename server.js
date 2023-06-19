@@ -4,12 +4,11 @@ const morgan = require('morgan')
 const methodOverride = require('method-override')
 const session = require('express-session')
 const mysql = require("mysql");
-
-/*
 const userRoutes = require('./routes/userRoutes')
+/*
+
 const lossGainRoutes = require('./routes/lossGainRoutes')
-const fireRoutes = require('./routes/fireRoutes')
-const bioRoutes = require('./routes/bioRoutes')
+const airRoutes = require('./routes/airRoutes')
 */
 
 
@@ -34,11 +33,11 @@ app.get('/', (req, res)=>{
     res.render('index')
 })
 
-/*
 app.use('/user', userRoutes)
+
+/*
 app.use('/loss-gain', lossGainRoutes)
-app.use('/fire', fireRoutes)
-app.use('/bio', bioRoutes)
+app.use('/air', airRoutes)
 */
 const connection = mysql.createConnection({
     host: "localhost",
@@ -66,5 +65,19 @@ connection.connect(function (err) {
     });
   
     console.log("Connected to the MySQL server.");
+    app.listen(PORT, () => console.log('Server is running on port '+PORT))
   });
-  
+
+
+
+  // const User = require('./models/user')
+  // const obj = {
+  //   firstName : 'success',
+  //   lastName : 'odoemena',
+  //   password : 'sodo010104',
+  //   email :'sodoeme@gmail.com'
+
+  // }
+  // const user = new User( obj  )
+  // console.log(user)
+  // User.createUser(user)
