@@ -10,7 +10,16 @@ exports.getLossData = async (req, res) => {
   //Set up error handling for if (!stateId){
   //res.send(`<h1>I'm sorry, ${stateName} is an invalid state. 🙁</h1>`);)
   // }else{
+  // Pass stateName into something that gets the geostore
+
+  // So we implement something like this for the state/geostore?
+  //  const geostore = await State.getGeostoreByState(stateName);
+  //  if (!state) {
+  //    console.log(`I'm sorry, ${stateName has no data});
+  //  }
+
   const geostore = "0e924b4cbb3c57c489102bee82e5539a";
+
   axios
     .get(
       `https://production-api.globalforestwatch.org/biomass-loss?geostore=${geostore}&period=&thresh=30`
