@@ -1,5 +1,5 @@
 const axios = require("axios");
-
+const State = require("../models/state");
 exports.getLossPage = async (req, res) => {
   res.render("lossIndex");
 };
@@ -13,21 +13,24 @@ exports.getLossData = async (req, res) => {
   // Pass stateName into something that gets the geostore
 
   // So we implement something like this for the state/geostore?
-  const geostore = await State.getGeostoreByState(stateName);
-  if (!state) {
+  const [stateId] = await State.getGeostoreByState(stateName);
+  if (!stateId) {
     console.log(`I'm sorry, ${stateName} is an invalid state.`);
   }
-
+  console.log(stateId);
   // const geostore = "0e924b4cbb3c57c489102bee82e5539a";
 
   axios
     .get(
-      `https://production-api.globalforestwatch.org/biomass-loss?geostore=${geostore}&period=&thresh=30`
+      `https://production-api.globalforestwatch.org/biomass-loss?geostore=${stateId.id}&period=&thresh=30`
     )
     .then((response) => {
-      const data = JSON.stringify(response.data, null, 2);
-      console.log(data);
+      const data = response.data;
+      const treeLossByYear = data.data.attributes.treeLossByYear;
+      console.log(treeLossByYear);
+
       // Plug displayed data here
+      // OR is there a way to plug it into the HTML page
       // const loss2001 = jsondata.attributes.treeLossByYear.2001;
       // const loss2002 = jsondata.attributes.treeLossByYear.2002;
       // const loss2003 = jsondata.attributes.treeLossByYear.2003;

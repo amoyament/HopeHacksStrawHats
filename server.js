@@ -4,8 +4,8 @@ const morgan = require("morgan");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const mysql = require("mysql");
-//onst userRoutes = require("./routes/userRoutes");
-//const lossGainRoutes = require("./routes/lossGainRoutes");
+const userRoutes = require("./routes/userRoutes");
+const lossGainRoutes = require("./routes/lossGainRoutes");
 
 /*
 const airRoutes = require('./routes/airRoutes')
@@ -32,14 +32,14 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-//app.use('/user', userRoutes)
-//app.use('/loss-gain', lossGainRoutes)
+app.use("/user", userRoutes);
+app.use("/loss-gain", lossGainRoutes);
 
 /*
 app.use('/air', airRoutes)
 */
 const connection = mysql.createConnection({
-  host: "localhost",
+  host: "127.0.0.1",
   user: "root",
   password: process.env.PASSWORD,
   database: "hope",
