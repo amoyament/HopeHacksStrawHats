@@ -31,16 +31,14 @@ class User {
   }
 
   static async comparePassword(input, password) {
-    return bcrypt.compare(input, password)
+    return bcrypt.compare(input, password);
   }
-  
 
   static async createUser(user) {
     try {
       const hashedPassword = await bcrypt.hash(user.password, 10);
 
-      const query =
-        "INSERT INTO users (firstName, lastName, password, email) VALUES (?, ?, ?, ?)";
+      const query = "INSERT INTO users (firstName, lastName, password, email) VALUES (?, ?, ?, ?)";
       const [result] = await db.query(query, [
         user.firstName,
         user.lastName,
@@ -54,8 +52,6 @@ class User {
       throw err;
     }
   }
-
-
 }
 
 module.exports = User;
