@@ -5,10 +5,15 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const mysql = require("mysql");
 const userRoutes = require('./routes/userRoutes')
+
+
+
+
+const airRoutes = require('./routes/airRoutes')
+
 /*
 
 const lossGainRoutes = require('./routes/lossGainRoutes')
-const airRoutes = require('./routes/airRoutes')
 */
 
 
@@ -35,9 +40,12 @@ app.get('/', (req, res)=>{
 
 app.use('/user', userRoutes)
 
+
+
+app.use('/air', airRoutes)
+
 /*
 app.use('/loss-gain', lossGainRoutes)
-app.use('/air', airRoutes)
 */
 const connection = mysql.createConnection({
     host: "localhost",
@@ -65,7 +73,7 @@ connection.connect(function (err) {
     });
   
     console.log("Connected to the MySQL server.");
-    app.listen(PORT, () => console.log('Server is running on port '+PORT))
+    app.listen(PORT, () => console.log('Server is running on port '+ PORT))
   });
 
 
