@@ -5,6 +5,8 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const mysql = require("mysql");
 const userRoutes = require('./routes/userRoutes')
+
+const contactRoutes = require('./routes/contactRoutes')
 /*
 
 const lossGainRoutes = require('./routes/lossGainRoutes')
@@ -34,6 +36,8 @@ app.get('/', (req, res)=>{
 })
 
 app.use('/user', userRoutes)
+
+app.use('/contact', contactRoutes)
 
 /*
 app.use('/loss-gain', lossGainRoutes)
