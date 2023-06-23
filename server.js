@@ -6,8 +6,12 @@ const session = require("express-session");
 const mysql = require("mysql");
 const userRoutes = require("./routes/userRoutes");
 const lossGainRoutes = require("./routes/lossGainRoutes");
+const contactRoutes = require('./routes/contactRoutes')
+const airRoutes = require('./routes/airRoutes')
 
 /*
+
+const lossGainRoutes = require('./routes/lossGainRoutes')
 const airRoutes = require('./routes/airRoutes')
 */
 
@@ -32,10 +36,13 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.use("/user", userRoutes);
-app.use("/loss-gain", lossGainRoutes);
+app.use('/user', userRoutes)
+app.use('/loss-gain', lossGainRoutes)
+app.use('/contact', contactRoutes)
+app.use('/air', airRoutes)
 
 /*
+app.use('/loss-gain', lossGainRoutes)
 app.use('/air', airRoutes)
 */
 const connection = mysql.createConnection({
@@ -57,15 +64,17 @@ connection.connect(function (err) {
         email VARCHAR(255) NOT NULL,
         UNIQUE(email)
     );`;
-  connection.query(createUser, function (err, results, fields) {
-    if (err) {
-      console.log(err.message);
-    }
+    connection.query(createUser, function (err, results, fields) {
+      if (err) {
+        console.log(err.message);
+      }
+    });
+  
+    console.log("Connected to the MySQL server.");
+    app.listen(PORT, () => console.log('Server is running on port '+PORT))
   });
 
-  console.log("Connected to the MySQL server.");
-  app.listen(PORT, () => console.log("Server is running on port " + PORT));
-});
+
 
 // const User = require('./models/user')
 // const obj = {
