@@ -161,5 +161,16 @@
         </div>
       </div>
     </div>
+    <script>
+      const apiContent = document.getElementsByClassName("api-info")[0];
+      var treeLossByYear = "<%= typeof treeLossByYear !== 'undefined' ? treeLossByYear : 0 %>";
+      if (treeLossByYear) {
+        console.log(treeLossByYear);
+        console.log(typeof treeLossByYear);
+      }
+      if (treeLossByYear == 0) {
+        apiContent.style.display = "none";
+      }
+    </script>
   </body>
 </html>

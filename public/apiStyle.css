@@ -88,7 +88,7 @@ input {
   width: 75vw;
   height: 0.1vh;
   border: none;
-  background: #355723;
+  background: #35572398;
   margin-top: 2%;
 }
 
@@ -165,8 +165,8 @@ h3 {
     font-size: 1.5vw;
   }
 
-  hr {
-    margin-top: 4%;
+  .brown-hr {
+    margin-top: 3%;
   }
 
   .state-header {

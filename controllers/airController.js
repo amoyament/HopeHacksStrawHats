@@ -13,7 +13,9 @@ exports.apiCall = async (req, res) => {
     .get(`https://api.waqi.info/feed/${city}/?token=${apiKey}`)
     .then((response) => {
       const data = response.data;
-      console.log(data);
+      const aqi = data.data.aqi;
+      console.log(aqi);
+      // console.log(data);
     })
     .catch((error) => {
       console.error(error);
