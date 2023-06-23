@@ -12,7 +12,7 @@
       <h1>Air Quality</h1>
       <!-- This could also be a css background image for the hero title, decide when further -->
       <img class="hero-image" src="../AirQualityAPI.webp" alt="Image of smoggy city" />
-      <p>
+      <p class="info-blurb">
         Air quality refers to the composition and cleanliness of the air we breathe. It is a vital
         aspect of environmental health that directly impacts human well-being, ecosystems, and the
         planet as a whole. Poor air quality is primarily caused by human activities such as
@@ -34,19 +34,18 @@
         pollutants. By improving air quality, we can protect human health, safeguard ecosystems, and
         mitigate the effects of climate change for a more sustainable future.
       </p>
-      <form class="" action="/" method="post">
+      <p class="input-command">
+        Enter a state name below to learn about the air quality in your area!
+      </p>
+      <form class="" action="/air" method="post">
         <input id="city" type="text" name="city" placeholder="City" required />
         <!-- Whatever name you put on your input is what will be sent as the json key for your form -->
         <button type="submit" name="button">Search</button>
       </form>
     </div>
-    <hr />
+    <hr class="brown-hr" />
     <div class="api-info">
-      <!-- Can a variable be created to make "Your Area" = to the variable name inputted -->
-      <h2>Air Quality in <%=city%></h2>
-      <!-- What are our variables for the air quality?
-      <p>Tree loss from 2001 - 2014:</p>
-      <p><%=treeLossByYear.2001%></p> -->
+      <h2>Air Quality in <%= typeof city !== 'undefined' ? city : "" %></h2>
     </div>
   </body>
 </html>
