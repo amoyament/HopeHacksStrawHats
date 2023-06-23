@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/apiStyle.css" />
+    <title>AirQualityInfoPage</title>
+  </head>
+  <body>
+    <div class="static-section">
+      <h1>Air Quality</h1>
+      <!-- This could also be a css background image for the hero title, decide when further -->
+      <img class="hero-image" src="../AirQualityAPI.webp" alt="Image of smoggy city" />
+      <p>
+        Air quality refers to the composition and cleanliness of the air we breathe. It is a vital
+        aspect of environmental health that directly impacts human well-being, ecosystems, and the
+        planet as a whole. Poor air quality is primarily caused by human activities such as
+        industrial emissions, vehicle exhaust, and the burning of fossil fuels. These activities
+        release pollutants such as particulate matter, nitrogen oxides, sulfur dioxide, and volatile
+        organic compounds into the atmosphere. The consequences of compromised air quality are
+        significant and wide-ranging. Firstly, it poses severe health risks, particularly for
+        vulnerable populations such as children, the elderly, and individuals with respiratory
+        conditions. Exposure to polluted air can lead to respiratory diseases, allergies,
+        cardiovascular issues, and even premature death. Furthermore, air pollution negatively
+        affects ecosystems, harming plant and animal life, disrupting ecological balance, and
+        impairing biodiversity. Acid rain, a consequence of air pollution, damages forests, bodies
+        of water, and soil quality. Additionally, air pollution contributes to climate change by
+        releasing greenhouse gases, which trap heat in the atmosphere and lead to global warming.
+        Climate change, in turn, has far-reaching effects on weather patterns, sea levels, and the
+        overall stability of ecosystems. To address the impacts of air pollution, it is crucial to
+        implement strict regulations on emissions, promote clean energy sources, encourage
+        sustainable transportation, and raise awareness about the importance of reducing air
+        pollutants. By improving air quality, we can protect human health, safeguard ecosystems, and
+        mitigate the effects of climate change for a more sustainable future.
+      </p>
+      <form class="" action="/" method="post">
+        <input id="city" type="text" name="city" placeholder="City" required />
+        <!-- Whatever name you put on your input is what will be sent as the json key for your form -->
+        <button type="submit" name="button">Search</button>
+      </form>
+    </div>
+    <hr />
+    <div class="api-info">
+      <!-- Can a variable be created to make "Your Area" = to the variable name inputted -->
+      <h2>Air Quality in <%=city%></h2>
+      <!-- What are our variables for the air quality?
+      <p>Tree loss from 2001 - 2014:</p>
+      <p><%=treeLossByYear.2001%></p> -->
+    </div>
+  </body>
+</html>

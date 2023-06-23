@@ -4,15 +4,162 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/apiStyle.css" />
     <title>Loss/GainsInfoPage</title>
   </head>
   <body>
-    <p>Hello, this is the loss and gains info page!</p>
-    <form class="" action="/" method="post">
-      <label for="state">State:</label>
-      <input id="state" type="text" name="stateName" required />
-      <!-- Whatever name you put on your input is what will be sent as the json key for your form -->
-      <button type="submit" name="button">Click Here</button>
-    </form>
+    <div class="static-section">
+      <!-- This could also be a css background image for the hero title, decide when further -->
+      <img class="hero-image" src="../DeforestationAPI.jpg" alt="Image of deforestation" />
+      <p class="info-blurb">
+        Deforestation involves the widespread clearing of forests for various purposes, leading to
+        significant environmental impacts. It results in the loss of biodiversity, disrupts
+        ecosystems, and contributes to climate change by releasing stored carbon into the
+        atmosphere. Deforestation also alters local climates, increases the risk of droughts and
+        floods, and causes soil erosion and water pollution. Sustainable forest management is
+        crucial to mitigate these harmful effects and conserve our remaining forested areas.
+      </p>
+      <p class="input-command">
+        Enter a state name below to learn about deforestation in your area!
+      </p>
+      <form class="" action="/loss-gain" method="post">
+        <input id="state" type="text" name="stateName" placeholder="State" required />
+        <!-- Whatever name you put on your input is what will be sent as the json key for your form -->
+        <button type="submit" name="button">Search</button>
+      </form>
+      <hr class="brown-hr" />
+    </div>
+    <div class="api-info">
+      <h2 class="state-header">
+        Deforestation in <%= typeof stateName !== 'undefined' ? stateName : "" %>
+      </h2>
+      <div class="full-stats">
+        <div class="stats stats1">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2001:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear !== 'undefined' ? treeLossByYear : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats2">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2002:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear2 !== 'undefined' ? treeLossByYear2 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats3">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2003:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear3 !== 'undefined' ? treeLossByYear3 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats4">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2004:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear4 !== 'undefined' ? treeLossByYear4 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats5">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2005:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear5 !== 'undefined' ? treeLossByYear5 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats6">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2006:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear6 !== 'undefined' ? treeLossByYear6 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats7">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2007:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear7 !== 'undefined' ? treeLossByYear7 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats8">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2008:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear8 !== 'undefined' ? treeLossByYear8 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats9">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2009:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear9 !== 'undefined' ? treeLossByYear9 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats10">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2010:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear10 !== 'undefined' ? treeLossByYear10 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats11">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2011:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear11 !== 'undefined' ? treeLossByYear11 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats12">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2012:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear12 !== 'undefined' ? treeLossByYear12 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats13">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2013:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear13 !== 'undefined' ? treeLossByYear13 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats14">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Tree loss in 2014:</h3>
+          <p class="state-stats">
+            <%= typeof treeLossByYear14 !== 'undefined' ? treeLossByYear14 : "" %> hectares of tree
+            coverage lost
+          </p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
