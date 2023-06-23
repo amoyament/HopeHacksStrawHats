@@ -3,6 +3,7 @@ body {
   text-align: center;
   font-family: "Source Sans 3";
   display: block;
+  background-color: whitesmoke;
   margin: 0;
   width: 100vw;
 }
@@ -117,6 +118,22 @@ h3 {
   flex-basis: 75%;
 }
 
+/* air quality page specifics */
+
+.quality-box {
+  height: 40%;
+  width: 6.5%;
+  margin-right: 10vw;
+  background-color: #faf3e6;
+}
+
+.key-box {
+  height: 30%;
+  width: 4%;
+  margin-right: 11vw;
+  background-color: #faf3e6;
+}
+
 /* Small devices (landscape tablets) */
 @media (min-width: 768px) {
   .info-blurb {
@@ -132,6 +149,16 @@ h3 {
 
   .green-hr {
     height: 0.25vh;
+  }
+
+  .quality-box {
+    height: 45%;
+    width: 8%;
+  }
+
+  .key-box {
+    height: 35%;
+    width: 6%;
   }
 }
 
@@ -209,5 +236,15 @@ h3 {
   .green-hr {
     width: 80vw;
     margin-top: 1%;
+  }
+
+  .quality-box {
+    height: 80%;
+    width: 5%;
+  }
+
+  .key-box {
+    height: 50%;
+    width: 3%;
   }
 }

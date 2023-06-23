@@ -34,6 +34,78 @@
     <hr class="brown-hr" />
     <div class="api-info">
       <h2>Air Quality in <%= typeof city !== 'undefined' ? city : "" %></h2>
+      <div class="full-stats">
+        <div class="stats stats1">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3 class="aqi">Air Quality Index:</h3>
+          <p class="state-stats">
+            <%= typeof aqi !== 'undefined' ? aqi : "" %> AQI <div class="quality-box"></div>
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats2">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Inhalable Particulate Matter:</h3>
+          <p class="state-stats">
+            <%= typeof particulateMatter !== 'undefined' ? particulateMatter : "" %> micrograms per
+            cubic meter of PM2.5 in the air
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats2">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>What is inhalable particulate matter?</h3>
+          <p class="state-stats"> A fine particulate matter that can be inhaled and penetrate deep into the respiratory system.</p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3 class="aqi">Air Quality Key:</h3>
+          <p class="state-stats">
+            0 - 50 AQI -- Good <div class="key-box" style="background-color: green;"></div>
+          </p>
+        </div>
+        <div class="stats">
+          <h3 class="aqi"></h3>
+          <p class="state-stats">
+            51 - 100 AQI -- Moderate <div class="key-box" style="background-color: yellow;"></div>
+          </p>
+        </div>
+        <div class="stats">
+          <h3 class="aqi"></h3>
+          <p class="state-stats">
+            101 - 150 AQI -- Unhealthy for Sensitive Groups<div class="key-box" style="background-color: orange;"></div>
+          </p>
+        </div>
+        <div class="stats">
+          <h3 class="aqi"></h3>
+          <p class="state-stats">
+            51 - 100 AQI  -- Unhealthy<div class="key-box" style="background-color: red;"></div>
+          </p>
+        </div>
+        <hr class="green-hr" />
+      </div>
     </div>
+    <script>
+      const apiContent = document.getElementsByClassName("api-info")[0];
+      const qualityBox = document.getElementsByClassName("quality-box")[0];
+      var aqi = "<%= typeof aqi !== 'undefined' ? aqi : 0 %>";
+      if (aqi) {
+        console.log(aqi);
+        console.log(typeof aqi);
+      }
+      if (aqi == 0) {
+        apiContent.style.display = "none";
+      }
+      if (aqi !== 0 && aqi < 51){
+        qualityBox.style.backgroundColor = "green"
+      }else if (aqi > 50 && aqi <= 100){
+        qualityBox.style.backgroundColor = "yellow"
+      }else if (aqi >= 101 && aqi <= 150){
+        qualityBox.style.backgroundColor = "orange"
+      }else if (aqi > 151){
+        qualityBox.style.backgroundColor = "red"
+      }
+    </script>
   </body>
 </html>

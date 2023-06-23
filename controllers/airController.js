@@ -14,8 +14,15 @@ exports.apiCall = async (req, res) => {
     .then((response) => {
       const data = response.data;
       const aqi = data.data.aqi;
+      const particulateMatter = data.data.iaqi.pm25["v"];
       console.log(aqi);
+      console.log(particulateMatter);
       // console.log(data);
+      res.render("airIndex", {
+        aqi,
+        particulateMatter,
+        city,
+      });
     })
     .catch((error) => {
       console.error(error);
