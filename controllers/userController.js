@@ -3,7 +3,7 @@ const User = require("../models/user");
 exports.getLoginPage = async (req, res) => {
   res.render("user/login");
 };
-
+ 
 exports.getSignUpPage = async (req, res) => {
   res.render("user/sign-up");
 };

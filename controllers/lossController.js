@@ -2,7 +2,7 @@ const axios = require("axios");
 const State = require("../models/state");
 exports.getLossPage = async (req, res) => {
   res.render("lossIndex");
-};
+}; 
 
 exports.getLossData = async (req, res) => {
   const stateName = req.body.stateName;

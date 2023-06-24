@@ -5,9 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/apiStyle.css" />
+    <link rel="stylesheet" href="/css/header-footer.css">
+    <script src="/js/header.js"></script>
+
     <title>AirQualityInfoPage</title>
   </head>
   <body>
+    <%- include('header-footer/header.ejs') %>
+
     <div class="static-section">
       <!-- This could also be a css background image for the hero title, decide when further -->
       <img class="hero-image" src="../AirQualityAPI.jpg" alt="Image of smoggy city" />
@@ -86,6 +91,8 @@
         <hr class="green-hr" />
       </div>
     </div>
+    <%- include('header-footer/footer.ejs') %>
+
     <script>
       const apiContent = document.getElementsByClassName("api-info")[0];
       const qualityBox = document.getElementsByClassName("quality-box")[0];

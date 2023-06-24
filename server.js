@@ -37,6 +37,11 @@ app.use(
   })
 
 
+  app.use((req, res, next) => {
+    res.locals.user = req.session.user ? 1 : 0
+    next();
+  });
+
 app.get('/', (req, res)=>{
     res.render('index')
 }) 
@@ -45,7 +50,16 @@ app.use('/user', userRoutes)
 app.use('/loss-gain', lossGainRoutes)
 app.use('/contact', contactRoutes)
 app.use('/air', airRoutes)
-
+app.get('/signout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+    } else {
+     
+      res.redirect('/'); 
+    }
+  });
+});
 /*
 app.use('/loss-gain', lossGainRoutes)
 app.use('/air', airRoutes)

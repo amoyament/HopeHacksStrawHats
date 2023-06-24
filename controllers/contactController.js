@@ -1,6 +1,6 @@
 const Contact = require("../models/contact");
 exports.getContactPage = async (req, res) => {
-res.render("contact");
+res.render("contact",{});
 };
 
 exports.sendMessage = async (req, res) => {
@@ -10,3 +10,4 @@ console.log(results);
 res.redirect('/contact')
 
 };
+ 
