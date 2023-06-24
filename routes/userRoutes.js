@@ -9,5 +9,5 @@ router.route('/')
 router.route('/signup')
 .get(userController.getSignUpPage)
 .post(userController.signUp)
-
+  
 module.exports = router
