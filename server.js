@@ -14,16 +14,15 @@ const airRoutes = require('./routes/airRoutes')
 const lossGainRoutes = require('./routes/lossGainRoutes')
 const airRoutes = require('./routes/airRoutes')
 */
-
-const app = express();
-let PORT = process.env.PORT || 300;
+const app = express()
 app.set("view engine", "ejs");
-
-app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(morgan("tiny"));
-app.use(methodOverride("_method"));
+let PORT = process.env.PORT || 300
+app.set('view engine', 'ejs')
+app.use(express.static(__dirname + '/public'))
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+app.use(morgan('tiny'))
+app.use(methodOverride('_method'))
 app.use(
   session({
     secret: "ajfeirf90aeu9eroejfoefj",
@@ -31,10 +30,16 @@ app.use(
     saveUninitialized: false,
   })
 );
+  session({
+    secret: "ajfeirf90aeu9eroejfoefj",
+    resave: false,
+    saveUninitialized: false,
+  })
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
+
+app.get('/', (req, res)=>{
+    res.render('index')
+}) 
 
 app.use('/user', userRoutes)
 app.use('/loss-gain', lossGainRoutes)
@@ -62,6 +67,7 @@ connection.connect(function (err) {
         lastName VARCHAR(255) NOT NULL,
         password VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL,
+        userName VARCHAR(255) NOT NULL,
         UNIQUE(email)
     );`;
     connection.query(createUser, function (err, results, fields) {

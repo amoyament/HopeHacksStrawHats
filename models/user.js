@@ -6,6 +6,7 @@ class User {
     this.lastName = obj?.lastName;
     this.password = obj?.password;
     this.email = obj?.email;
+    this.userName = obj?.userName;
   }
 
   static async getUserById(id) {
@@ -19,10 +20,10 @@ class User {
     }
   }
 
-  static async getUserByEmail(email) {
+  static async getUserByUserName(userName) {
     try {
-      const query = `SELECT * FROM users WHERE email = ?`;
-      const [rows] = await db.query(query, [email]);
+      const query = `SELECT * FROM users WHERE userName = ?`;
+      const [rows] = await db.query(query, [userName]);
       return rows;
     } catch (err) {
       console.log(err);
@@ -38,12 +39,14 @@ class User {
     try {
       const hashedPassword = await bcrypt.hash(user.password, 10);
 
-      const query = "INSERT INTO users (firstName, lastName, password, email) VALUES (?, ?, ?, ?)";
+      const query =
+        "INSERT INTO users (firstName, lastName, password, email, userName) VALUES (?, ?, ?, ?,?)";
       const [result] = await db.query(query, [
         user.firstName,
         user.lastName,
         hashedPassword,
         user.email,
+        user.userName
       ]);
 
       return result.insertId;
@@ -52,6 +55,8 @@ class User {
       throw err;
     }
   }
+
+
 }
 
 module.exports = User;
