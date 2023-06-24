@@ -55,6 +55,8 @@ class User {
       throw err;
     }
   }
+
+
 }
 
 module.exports = User;
