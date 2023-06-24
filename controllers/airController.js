@@ -3,22 +3,28 @@ const axios = require("axios");
 const apiKey = "ce4234ab80db2c15a72ff2396257df089601adf3";
 
 exports.getPage = async (req, res) => {
-    // res.render("air")
+  res.render("airIndex");
 };
 
 exports.apiCall = async (req, res) => {
-    const city = req.body.city;
+  const city = req.body.city;
 
-    axios
-        .get(`https://api.waqi.info/feed/${city}/?token=${apiKey}`)
-        .then((response) => {
-            const data = response.data
-            console.log(data);
-
-
-
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+  axios
+    .get(`https://api.waqi.info/feed/${city}/?token=${apiKey}`)
+    .then((response) => {
+      const data = response.data;
+      const aqi = data.data.aqi;
+      const particulateMatter = data.data.iaqi.pm25["v"];
+      console.log(aqi);
+      console.log(particulateMatter);
+      // console.log(data);
+      res.render("airIndex", {
+        aqi,
+        particulateMatter,
+        city,
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };

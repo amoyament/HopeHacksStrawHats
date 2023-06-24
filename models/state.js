@@ -9,7 +9,6 @@ class State {
       // Should this be rows or columns? :
       // we are awaiting state, yes?
       const [rows] = await db.query(query, [state]);
-      // Wouldn't we return id and not rows?
       return rows;
     } catch (err) {
       console.log(err);
@@ -17,5 +16,4 @@ class State {
     }
   }
 }
-// Does this need to be in loss model? What is it doing?
 module.exports = State;
