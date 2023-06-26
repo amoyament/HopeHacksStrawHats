@@ -8,6 +8,13 @@ exports.getPage = async (req, res) => {
 
 exports.apiCall = async (req, res) => {
   const city = req.body.city;
+  // if (!city) {
+  //   var notValid = `I'm sorry, "${stateName}" is not a valid state name. 🙁`;
+  //   res.render("airIndex", {
+  //     notValid,
+  //   });
+  //   return;
+  // }
 
   // if (!city) {
   //   res.send(
@@ -24,6 +31,7 @@ exports.apiCall = async (req, res) => {
       const particulateMatter = data.data.iaqi.pm25["v"];
       // console.log(aqi);
       // console.log(particulateMatter);
+
       res.render("airIndex", {
         aqi,
         particulateMatter,

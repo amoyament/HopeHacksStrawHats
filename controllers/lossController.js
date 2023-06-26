@@ -16,9 +16,10 @@ exports.getLossData = async (req, res) => {
   const [stateId] = await State.getGeostoreByState(stateName);
 
   if (!stateId) {
-    res.send(
-      `<h1>I'm sorry, ${stateName} is not a valid state name. 🙁 Please press the back button and try again.</h1>`
-    );
+    var notValid = `I'm sorry, "${stateName}" is not a valid state name. 🙁`;
+    res.render("lossIndex", {
+      notValid,
+    });
     return;
   }
 

@@ -28,6 +28,13 @@ img {
   text-align: center;
 }
 
+.invalid {
+  margin: 1% 20%;
+  color: #5b1a04;
+  font-size: 3vw;
+  text-align: center;
+}
+
 form {
   display: inline-flex;
   border-color: #355723aa;
@@ -143,7 +150,6 @@ h3 {
 
   .input-command {
     margin: 15%;
-    font-size: 4vw;
     margin: 10vw 20vw 2vw;
   }
 
@@ -177,6 +183,10 @@ h3 {
   .input-command {
     margin: 1% 35%;
     font-size: 1.5vw;
+  }
+
+  .invalid {
+    font-size: 1.25vw;
   }
 
   .hello {
