@@ -9,15 +9,21 @@ exports.getPage = async (req, res) => {
 exports.apiCall = async (req, res) => {
   const city = req.body.city;
 
+  // if (!city) {
+  //   res.send(
+  //     `<h1>I'm sorry, ${city} is not a valid city name. 🙁\n Please press the back button and try again.</h1>`
+  //   );
+  //   return;
+  // }
+
   axios
     .get(`https://api.waqi.info/feed/${city}/?token=${apiKey}`)
     .then((response) => {
       const data = response.data;
       const aqi = data.data.aqi;
       const particulateMatter = data.data.iaqi.pm25["v"];
-      console.log(aqi);
-      console.log(particulateMatter);
-      // console.log(data);
+      // console.log(aqi);
+      // console.log(particulateMatter);
       res.render("airIndex", {
         aqi,
         particulateMatter,
@@ -26,6 +32,8 @@ exports.apiCall = async (req, res) => {
     })
     .catch((error) => {
       console.error(error);
+      res.send(
+        `<h1>I'm sorry, ${city} is not a valid city. Please press the back button and try again. 🙁</h1>`
+      );
     });
 };
- 

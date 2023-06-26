@@ -1,39 +1,36 @@
+<header class="header-area">
+  <!-- site-navbar start -->
+  <div class="navbar-area">
+    <div class="nav-container">
+      <nav class="site-navbar">
+        <!-- site logo -->
+        <a href="#home" class="site-logo">Forest Fighters</a>
 
-    <header class="header-area">
-        <!-- site-navbar start -->
-        <div class="navbar-area">
-          <div class="nav-container">
-            <nav class="site-navbar">
-              <!-- site logo -->
-              <a href="#home" class="site-logo">logo</a>
-      
-              <!-- site menu/nav -->
-              <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/loss-gain">Deforestation</a></li>
-                <li><a href="/air">Air Quality</a></li>
-                <li><a href="/map">Map</a></li>
-                <li><a href="/contact">contact</a></li>
-                <li id="user"><a href="/user">Log In</a></li>
-              </ul>
-      
-              <!-- nav-toggler for mobile version only -->
-              <button class="nav-toggler">
-                <span></span>
-              </button>
-            </nav>
-          </div>
-        </div><!-- navbar-area end -->
-      
-      </header>
-      <script>
-        const tag = document.getElementById("user")
-        const isLoggedIn = Number('<%= user %>')
-        console.log(isLoggedIn, " outside")
-        if(isLoggedIn>0){
-          tag.innerHTML='<a href="/signout"> Sign Out</a>'
-          console.log(isLoggedIn)
-          
-        }
+        <!-- site menu/nav -->
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/loss-gain">Deforestation</a></li>
+          <li><a href="/air">Air Quality</a></li>
+          <li><a href="/map">Map</a></li>
+          <li><a href="/contact">contact</a></li>
+          <li id="user"><a href="/user">Log In</a></li>
+        </ul>
 
-      </script>
+        <!-- nav-toggler for mobile version only -->
+        <button class="nav-toggler">
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </div>
+  <!-- navbar-area end -->
+</header>
+<script>
+  const tag = document.getElementById("user");
+  const isLoggedIn = Number("<%= user %>");
+  console.log(isLoggedIn, " outside");
+  if (isLoggedIn > 0) {
+    tag.innerHTML = '<a href="/signout"> Sign Out</a>';
+    console.log(isLoggedIn);
+  }
+</script>

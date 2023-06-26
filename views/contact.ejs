@@ -1,100 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css" /> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <title>Document</title>
-	<link rel="stylesheet" href="/css/contact.css">
-  <script src="/js/header.js"></script>
+    <link rel="stylesheet" href="/css/contact.css" />
+    <link rel="stylesheet" href="/css/header-footer.css" />
+    <script src="/js/header.js"></script>
+  </head>
 
+  <body>
+    <%- include('header-footer/header.ejs') %>
 
-</head>
-
-<body>
-  <%- include('header-footer/header.ejs') %>
-
-
-  <div class="container">
-    <div style="text-align:center">
-      <h3>Contact Us</h3>
-      <hr class="custom-hr">
-      <h4>Meet the Team</h4>
-    </div>
-    <div class="image-container">
-      <div class="image">
-        <img src="imgs/Success headshot.jpeg" alt="Image 1">
-        <h1>Success Odoemena</h1>
-        <h2>Chief Executive Officer</h2>
+    <div class="container">
+      <div style="text-align: center">
+        <h3>Contact Us</h3>
+        <hr class="custom-hr" />
+        <h4>Meet the Team</h4>
       </div>
-      <div class="image">
-        <img src="imgs/Sebastian headshot.jpeg" alt="Image 2">
-        <h1>Sebastian Bonilla</h1>
-        <h2>Chief Financial Officer</h2>
+      <div class="image-container">
+        <div class="image">
+          <img src="imgs/Success headshot.jpeg" alt="Image 1" />
+          <h1>Success Odoemena</h1>
+          <h2>Chief Executive Officer</h2>
+        </div>
+        <div class="image">
+          <img src="imgs/Sebastian headshot.jpeg" alt="Image 2" />
+          <h1>Sebastian Bonilla</h1>
+          <h2>Chief Financial Officer</h2>
+        </div>
+        <div class="image">
+          <img src="imgs/Wangel headshot.jpeg" alt="Image 3" />
+          <h1>Wangel Yohannes</h1>
+          <h2>Chief Strategy Officer</h2>
+        </div>
+        <div class="image">
+          <img src="imgs/Aubrey headshot.jpeg" alt="Image 4" />
+          <h1>Aubrey M. Trotter</h1>
+          <h2>Director of Operations</h2>
+        </div>
       </div>
-      <div class="image">
-        <img src="imgs/Wangel headshot.jpeg" alt="Image 3">
-        <h1>Wangel Yohannes</h1>
-        <h2>Chief Strategy Officer</h2>
+
+      <div style="text-align: center">
+        <hr class="custom-hr1" />
+        <h5>Please fill out the form below to get in contact with a member of our team.</h5>
+        <h5>Typical response time is within 1 to 3 business days.</h5>
       </div>
-      <div class="image">
-        <img src="imgs/Aubrey headshot.jpeg" alt="Image 4">
-        <h1>Aubrey M. Trotter</h1>
-        <h2>Director of Operations</h2>
+      <div class="row">
+        <div class="column">
+          <form action="/contact" method="post">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                class="textInput"
+                type="name"
+                id="name"
+                name="name"
+                placeholder="John doe"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                class="textInput"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your-email@example.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="tel"
+                class="textInput"
+                id="phone"
+                name="phone"
+                placeholder="(000)-000-000"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="date">Date</label>
+              <input
+                type="date"
+                class="textInput"
+                id="date"
+                name="date"
+                placeholder="DD/MM/YYYY"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="reason">Reason</label>
+              <select id="dropdown" name="reason" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="get involved">Get Involved</option>
+                <option value="review/testimonial">Review/Testimonial</option>
+                <option value="question/concern">Question/Concern</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                class="textInput"
+                id="description"
+                name="description"
+                placeholder="Type your comments, questions, concerns, etc. here"
+                style="height: 170px"
+                required
+              ></textarea>
+            </div>
+            <input type="submit" value="Submit" class="custom-button" />
+          </form>
+        </div>
       </div>
     </div>
-  
-    <div style="text-align:center">
-      <hr class="custom-hr1">
-      <h5>Please fill out the form below to get in contact with a member of our team.</h5>
-      <h5>Typical response time is within 1 to 3 business days.</h5>
-    </div>
-    <div class="row">
-  
-      <div class="column">
-        <form action="/contact" method="post">
-
-
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input class="textInput" type="name" id="name" name="name" placeholder="John doe" required>
-          </div>
-
-
-        
-
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input class="textInput" type="email" id="email" name="email" placeholder="wyohannes13@r2happrentice.org" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" class="textInput" id="phone" name="phone" placeholder="(000)-000-000" required>
-          </div>
-          <div class="form-group">
-            <label for="date">Date</label>
-            <input type="date" class="textInput" id="date" name="date" placeholder="DD/MM/YYYY" required>
-          </div>
-          <div class="form-group">
-            <label for="reason">Reason</label>
-            <select id="reason" name="reason" required>
-              <option value="get involved">Get Involved</option>
-              <option value="review/testimonial">Review/Testimonial</option>
-              <option value="question/concern">Question/Concern</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea class="textInput" id="description" name="description" placeholder="Type your comments, questions, concerns, etc. here" style="height:170px" required></textarea>
-          </div>
-          <input type="submit" value="Submit" class="custom-button">
-        </form>
-      </div>          
-    </div>
-  </div>
-  <%- include('header-footer/footer.ejs') %>
-
-</body>
-<script src="app.js"></script>
+    <%- include('header-footer/footer.ejs') %>
+  </body>
+  <script src="app.js"></script>
 </html>

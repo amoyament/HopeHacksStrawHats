@@ -2,7 +2,7 @@ const axios = require("axios");
 const State = require("../models/state");
 exports.getLossPage = async (req, res) => {
   res.render("lossIndex");
-}; 
+};
 
 exports.getLossData = async (req, res) => {
   const stateName = req.body.stateName;
@@ -14,8 +14,12 @@ exports.getLossData = async (req, res) => {
 
   // So we implement something like this for the state/geostore?
   const [stateId] = await State.getGeostoreByState(stateName);
+
   if (!stateId) {
-    console.log(`I'm sorry, ${stateName} is an invalid state.`);
+    res.send(
+      `<h1>I'm sorry, ${stateName} is not a valid state name. 🙁 Please press the back button and try again.</h1>`
+    );
+    return;
   }
 
   axios

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/apiStyle.css" />
+    <link rel="stylesheet" href="/css/apiStyle.css" />
     <link rel="stylesheet" href="/css/header-footer.css">
     <script src="/js/header.js"></script>
 
@@ -15,7 +15,7 @@
 
     <div class="static-section">
       <!-- This could also be a css background image for the hero title, decide when further -->
-      <img class="hero-image" src="../AirQualityAPI.jpg" alt="Image of smoggy city" />
+      <img class="hero-image" src="../imgs/AirQualityAPI.jpg" alt="Image of smoggy city" />
       <p class="info-blurb">
         Air quality refers to the composition and cleanliness of the air we breathe. It is a vital
         aspect of environmental health that directly impacts human well-being, ecosystems, and the
@@ -30,7 +30,7 @@
       <p class="input-command">
         Enter a state name below to learn about the air quality in your area!
       </p>
-      <form class="" action="/air" method="post">
+      <form class="hello" action="/air" method="post">
         <input id="city" type="text" name="city" placeholder="City" required />
         <!-- Whatever name you put on your input is what will be sent as the json key for your form -->
         <button type="submit" name="button">Search</button>

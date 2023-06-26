@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/apiStyle.css" />
-    <link rel="stylesheet" href="/css/header-footer.css">
+    <link rel="stylesheet" href="/css/apiStyle.css" />
+    <link rel="stylesheet" href="/css/header-footer.css" />
     <script src="/js/header.js"></script>
-
 
     <title>Loss/GainsInfoPage</title>
   </head>
@@ -16,7 +15,7 @@
 
     <div class="static-section">
       <!-- This could also be a css background image for the hero title, decide when further -->
-      <img class="hero-image" src="../DeforestationAPI.jpg" alt="Image of deforestation" />
+      <img class="hero-image" src="../imgs/DeforestationAPI.jpg" alt="Image of deforestation" />
       <p class="info-blurb">
         Deforestation involves the widespread clearing of forests for various purposes, leading to
         significant environmental impacts. It results in the loss of biodiversity, disrupts
@@ -28,7 +27,7 @@
       <p class="input-command">
         Enter a state name below to learn about deforestation in your area!
       </p>
-      <form class="" action="/loss-gain" method="post">
+      <form class="hello" action="/loss-gain" method="post">
         <input id="state" type="text" name="stateName" placeholder="State" required />
         <!-- Whatever name you put on your input is what will be sent as the json key for your form -->
         <button type="submit" name="button">Search</button>
