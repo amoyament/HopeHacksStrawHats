@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  font-family: "Source Sans 3";
 }
 .hero {
   position: relative;
@@ -22,6 +23,10 @@
   height: 100%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   z-index: 2;
+}
+
+.main-title {
+  color: #faf3e6;
 }
 .hero .content {
   position: absolute;
@@ -65,7 +70,7 @@
 .banner-icon i {
   font-size: 60px; /* makes the icons larger */
   margin-bottom: 15px;
-  color: #355723;
+  color: #355723aa;
   transition: color 1s ease;
 }
 .banner-icon:hover i,
@@ -85,11 +90,12 @@
   max-width: 250px;
   text-align: center;
 }
+
 /* Apply styles to the mission section */
 .mission {
   padding: 40px 0;
   text-align: center;
-  background-color: #355723;
+  background-color: #355723aa;
   color: whitesmoke;
 }
 .mission h2 {

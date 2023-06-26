@@ -8,13 +8,6 @@ exports.getPage = async (req, res) => {
 
 exports.apiCall = async (req, res) => {
   const city = req.body.city;
-  // if (!city) {
-  //   var notValid = `I'm sorry, "${stateName}" is not a valid state name. 🙁`;
-  //   res.render("airIndex", {
-  //     notValid,
-  //   });
-  //   return;
-  // }
 
   // if (!city) {
   //   res.send(
@@ -23,25 +16,30 @@ exports.apiCall = async (req, res) => {
   //   return;
   // }
 
-  axios
-    .get(`https://api.waqi.info/feed/${city}/?token=${apiKey}`)
-    .then((response) => {
-      const data = response.data;
-      const aqi = data.data.aqi;
-      const particulateMatter = data.data.iaqi.pm25["v"];
-      // console.log(aqi);
-      // console.log(particulateMatter);
-
+  axios.get(`https://api.waqi.info/feed/${city}/?token=${apiKey}`).then((response) => {
+    const data = response.data;
+    if (data.status === "error") {
+      var notValid = `I'm sorry, "${city}" is not a valid state name. 🙁`;
       res.render("airIndex", {
-        aqi,
-        particulateMatter,
-        city,
+        notValid,
       });
-    })
-    .catch((error) => {
-      console.error(error);
-      res.send(
-        `<h1>I'm sorry, ${city} is not a valid city. Please press the back button and try again. 🙁</h1>`
-      );
+      return;
+    }
+    const aqi = data.data.aqi;
+    const particulateMatter = data.data.iaqi.pm25["v"];
+    // console.log(data);
+    // console.log(particulateMatter);
+
+    res.render("airIndex", {
+      aqi,
+      particulateMatter,
+      city,
     });
+  });
+  // .catch((error) => {
+  //   console.error(error);
+  //   res.render(
+  //     `<h1>I'm sorry, ${city} is not a valid city. Please press the back button and try again. 🙁</h1>`
+  //   );
+  // });
 };
