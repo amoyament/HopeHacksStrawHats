@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+    .container {
+      width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    h2 {
+      color: #333333;
+    }
+    .search-container {
+      margin-bottom: 20px;
+    }
+    .search-container input[type="text"] {
+      padding: 5px;
+      width: 200px;
+      border-radius: 3px;
+      border: 1px solid #dddddd;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #dddddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .actions {
+      display: flex;
+      align-items: center;
+    }
+    .actions a {
+      margin-right: 5px;
+      color: #337ab7;
+      text-decoration: none;
+    }
+    .actions a:hover {
+      text-decoration: underline;
+    }
+    .edit-form {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Admin Page</h2>
+    <form action="/admin/logout" method="POST">
+      <button type="submit">Sign Out</button>
+    </form>
+    <table id="users-table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="table">
+        <% for (let i = 0; i < users.length; i++) { %>
+          <% let user = users[i]; %>
+          <tr>
+            <td><%= user.userName %></td>
+            <td>
+              <span class="email-value"><%= user.email %></span>
+              <form class="edit-form" data-userid="<%= user.id %>" action="/admin/update?_method=PUT" method="POST">
+                <input type="hidden" name="userId" value="<%= user.id %>">
+                <input type="text" name="email" value="<%= user.email %>">
+                <input type="hidden" name="_method" value="PUT">
+                <button type="submit">Save</button>
+                <button type="button" class="cancel-edit">Cancel</button>
+              </form>
+            </td>
+            <td class="actions">
+              <a href="#" class="edit-link" data-userid="<%= user.id %>">Edit</a>
+
+              <form class="delete-form" action="/admin/delete?_method=DELETE" method="POST">
+                <input type="hidden" name="userId" value="<%= user.id %>">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% } %>
+        <% if (users.length === 0) { %>
+          <tr>
+            <td colspan="3">No users found.</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+    
+  </div>
+
+  <script>
+  
+// Add event listeners for edit links
+const editLinks = document.querySelectorAll('.edit-link');
+    editLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const userId = link.dataset.userid;
+        const emailValueSpan = link.parentNode.previousElementSibling.querySelector('.email-value');
+        const editForm = link.parentNode.previousElementSibling.querySelector('.edit-form');
+        
+        emailValueSpan.style.display = 'none';
+        editForm.style.display = 'block';
+      });
+    });
+
+    // Add event listeners for cancel buttons
+    const cancelButtons = document.querySelectorAll('.cancel-edit');
+    cancelButtons.forEach(button => {
+      button.addEventListener('click', e => {
+        e.preventDefault();
+        const emailValueSpan = button.parentNode.parentNode.querySelector('.email-value');
+        const editForm = button.parentNode;
+        
+        emailValueSpan.style.display = 'inline';
+        editForm.style.display = 'none';
+      });
+    });
+
+
+
+    // Search functionality
+    const searchInput = document.getElementById('search');
+    const usersTable = document.getElementById('users-table');
+
+    searchInput.addEventListener('input', function () {
+      const searchQuery = this.value.toLowerCase();
+      const rows = usersTable.getElementsByTagName('tr');
+
+      for (let i = 0; i < rows.length; i++) {
+        const username = rows[i].getElementsByTagName('td')[0];
+        const email = rows[i].getElementsByTagName('td')[1];
+
+        if (username.innerHTML.toLowerCase().indexOf(searchQuery) > -1 ||
+            email.innerHTML.toLowerCase().indexOf(searchQuery) > -1) {
+          rows[i].style.display = '';
+        } else {
+          rows[i].style.display = 'none';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
