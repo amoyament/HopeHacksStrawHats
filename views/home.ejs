@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/home.css" />
+    <link rel="stylesheet" href="/public/css/header-footer.css" />
+    <script src="https://kit.fontawesome.com/97b0df7cd8.js" crossorigin="anonymous"></script>
+    <title>Forest Fighters</title>
+  </head>
+  <body>
+    <%- include('header-footer/header.ejs') %>
+    <header class="header-area">
+      <!-- site-navbar start -->
+      <div class="navbar-area">
+        <div class="nav-container">
+          <nav class="site-navbar">
+            <!-- site logo -->
+            <a href="#home" class="site-logo">Forest Fighters</a>
+            <!-- site menu/nav -->
+            <ul>
+              <li><a href="home.ejs">Home</a></li>
+              <li><a href="airIndex.ejs">Air</a></li>
+              <li><a href="lossIndex.ejs">Tree Count</a></li>
+              <li><a href="map.ejs">Map</a></li>
+              <li><a href="contact.ejs">contact</a></li>
+            </ul>
+            <!-- nav-toggler for mobile version only -->
+            <button class="nav-toggler">
+              <span></span>
+            </button>
+          </nav>
+        </div>
+      </div>
+      <!-- navbar-area end -->
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+      <video src="/public/imgs/Forest-Loop.mp4" type="video/mp4" autoplay loop muted></video>
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Forest Fighters</h1>
+      </div>
+    </section>
+    <!-- Info Card -->
+    <section class="banner">
+      <h2>Look at the impact in your area by visiting one of the pages below</h2>
+      <div class="banner-icons">
+        <a href="lossIndex.ejs">
+          <div class="banner-icon">
+            <i class="fa-solid fa-plus-minus"></i>
+            <h4>Forest Loss and Gain</h4>
+            <p>Checkout how many trees have been cut down or planted in your area</p>
+          </div>
+        </a>
+        <a href="airIndex.ejs">
+          <div class="banner-icon">
+            <i class="fa-solid fa-wind"></i>
+            <h4>Air Quality</h4>
+            <p>Checkout the air quality in your area</p>
+          </div>
+        </a>
+        <a href="map.ejs">
+          <div class="banner-icon">
+            <i class="fa-solid fa-map-location"></i>
+            <h4>Interactive Map</h4>
+            <p>Take a look at what's going on in the country in real time</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    <!-- Mission statement -->
+    <section class="mission">
+      <h2>Our Mission Statement</h2>
+      <p>
+        Our mission is to raise awareness and foster understanding among the public about the
+        critical issue of deforestation and its far-reaching consequences on our environment.
+        Through education, advocacy, and community engagement, we strive to enlighten individuals
+        and empower them to take meaningful action towards the preservation and restoration of our
+        forests. By promoting sustainable practices, collaborating with stakeholders, and supporting
+        initiatives that prioritize reforestation and conservation efforts, we aim to create a
+        future where our planet's forests thrive, biodiversity flourishes, and the delicate balance
+        between human needs and ecological integrity is upheld. Together, we can make a lasting
+        impact and safeguard the beauty and vitality of our natural world for generations to come.
+      </p>
+    </section>
+    <%- include('header-footer/footer.ejs') %>
+  </body>
+</html>

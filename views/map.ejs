@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/header-footer.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('header-footer/header.ejs') %>
+    <!-- Iframe for interactive ArcGIS map -->
+    <style>
+      .embed-container {
+        position: relative;
+        padding-bottom: 80%;
+        height: 0;
+        max-width: 100%;
+      }
+      .embed-container iframe,
+      .embed-container object,
+      .embed-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      small {
+        position: absolute;
+        z-index: 40;
+        bottom: 0;
+        margin-bottom: -15px;
+      }
+    </style>
+    <div class="embed-container">
+      <iframe
+        width="500"
+        height="400"
+        frameborder="0"
+        scrolling="no"
+        marginheight="0"
+        marginwidth="0"
+        title="Hope Hacks Map"
+        src="//www.arcgis.com/apps/Embed/index.html?webmap=191b7d783ba64767906232a551dd08e9&extent=-129.356,13.7449,-57.6812,54.4142&home=true&zoom=true&previewImage=false&scale=true&search=true&searchextent=true&details=true&legend=true&active_panel=details&basemap_gallery=true&disable_scroll=true&theme=light"
+      ></iframe>
+    </div>
+    <%- include('header-footer/footer.ejs') %>
+  </body>
+</html>
