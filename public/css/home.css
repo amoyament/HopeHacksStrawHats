@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+}
+.hero {
+  position: relative;
+  height: 500px;
+}
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 2;
+}
+.hero .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: whitesmoke;
+  text-align: center;
+  z-index: 3;
+}
+/* Apply styles to the banner section */
+.banner {
+  background-color: #faf3e6; /* lighter shade of gray for a more subtle background */
+  padding: 60px 0;
+  text-align: center;
+}
+.banner h2 {
+  font-size: 32px;
+  margin-bottom: 60px;
+}
+.banner-icons {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px; /* adds some space between the icons when they stack on smaller screens */
+}
+.banner-icons a:visited {
+  color: inherit;
+}
+.banner-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer; /* changes the cursor when hovering over the icon */
+}
+.banner-icon:hover {
+  transform: scale(1.3); /* makes the icon slightly larger when hovering */
+}
+.banner-icon i {
+  font-size: 60px; /* makes the icons larger */
+  margin-bottom: 15px;
+  color: #355723;
+  transition: color 1s ease;
+}
+.banner-icon:hover i,
+.banner-icon:hover h4,
+.banner-icon:hover p {
+  color: #5b1a04;
+}
+.banner-icon h4 {
+  font-size: 24px; /* increases the font size of the title */
+  margin-bottom: 10px;
+}
+.banner-icon p {
+  font-size: 18px; /* increases the font size of the description */
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 250px;
+  text-align: center;
+}
+/* Apply styles to the mission section */
+.mission {
+  padding: 40px 0;
+  text-align: center;
+  background-color: #355723;
+  color: whitesmoke;
+}
+.mission h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.mission p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+/* CSS for tablets and small desktops */
+@media (max-width: 992px) {
+  .hero {
+    height: 300px;
+  }
+  .hero .content {
+    font-size: 30px;
+  }
+  .banner h2,
+  .mission h2 {
+    font-size: 24px;
+  }
+  .banner-icon i {
+    font-size: 40px;
+  }
+  .banner-icon h4 {
+    font-size: 18px;
+  }
+  .banner-icon p {
+    font-size: 14px;
+  }
+  .mission p {
+    font-size: 14px;
+  }
+}
+/* CSS for mobile devices */
+@media (max-width: 768px) {
+  .banner-icons {
+    flex-direction: column; /* Stack the icons vertically on small screens */
+    align-items: center;
+  }
+  .banner-icon {
+    margin-bottom: 40px; /* Add some vertical spacing between the icons */
+  }
+  .banner-icon:last-child {
+    margin-bottom: 0; /* Remove the bottom margin from the last icon */
+  }
+  .banner-icon:hover {
+    transform: none; /* Disables the hover effect on mobile devices */
+  }
+  .banner-icon i {
+    font-size: 50px;
+  }
+  .banner-icon h4 {
+    font-size: 18px;
+  }
+  .banner-icon p {
+    font-size: 14px;
+    max-width: none;
+    text-align: center;
+  }
+}
