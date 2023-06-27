@@ -10,20 +10,19 @@ const contactRoutes = require("./routes/contactRoutes");
 const airRoutes = require("./routes/airRoutes");
 const adminRoutes = require("./routes/adminRoutes.js");
 
-/*
-
-const lossGainRoutes = require('./routes/lossGainRoutes')
-const airRoutes = require('./routes/airRoutes')
-*/
+//mount middle ware
 const app = express();
 app.set("view engine", "ejs");
 let PORT = process.env.PORT || 300;
-app.set("view engine", "ejs");
+//static files
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan("tiny"));
+//in order to perform request beside post and get we must use 
+//method override
 app.use(methodOverride("_method"));
+//configure session settings
 app.use(
   session({
     secret: "ajfeirf90aeu9eroejfoefj",
@@ -31,22 +30,21 @@ app.use(
     saveUninitialized: false,
   })
 );
-session({
-  secret: "ajfeirf90aeu9eroejfoefj",
-  resave: false,
-  saveUninitialized: false,
-});
 
+// local variables that can be accessed within ejs temlates
+//used to store user's name and wehter or not a user is logged in
 app.use((req, res, next) => {
   res.locals.user = req.session.user ? 1 : 0;
   res.locals.name = req.session.name ? req.session.name : 0;
   next();
 });
 
+//render homepage
 app.get("/", (req, res) => {
   res.render("index");
 });
 
+//routes
 app.use('/user', userRoutes)
 app.use('/loss-gain', lossGainRoutes)
 app.use('/contact', contactRoutes)
@@ -54,6 +52,9 @@ app.use('/air', airRoutes)
 app.get("/map", (req,res)=>{
   res.render("map")
 })
+
+//user signout
+//destroy session
 app.get("/signout", (req, res)=>{
   req.session.destroy((err) => {
     if (err) {
@@ -64,11 +65,9 @@ app.get("/signout", (req, res)=>{
   });
 
 })
+///admin route
 app.use("/admin", adminRoutes)
-/*
-app.use('/loss-gain', lossGainRoutes)
-app.use('/air', airRoutes)
-*/
+
 const connection = mysql.createConnection({
   host: "127.0.0.1",
   user: "root",
@@ -99,17 +98,9 @@ connection.connect(function (err) {
   app.listen(PORT, () => console.log("Server is running on port " + PORT));
 });
 
+
+//404 page not found handler
 app.use((req, res, next) => {
   res.render("404.ejs");
 });
-// const User = require('./models/user')
-// const obj = {
-//   firstName : 'success',
-//   lastName : 'odoemena',
-//   password : 'sodo010104',
-//   email :'sodoeme@gmail.com'
 
-// }
-// const user = new User( obj  )
-// console.log(user)
-// User.createUser(user)

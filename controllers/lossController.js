@@ -1,9 +1,12 @@
 const axios = require("axios");
 const State = require("../models/state");
+
+//render tree loss page
 exports.getLossPage = async (req, res) => {
   res.render("lossIndex");
 };
 
+//use state model to pull geostore id for state to be passed into api call
 exports.getLossData = async (req, res) => {
   const stateName = req.body.stateName;
   // set up state name equal to a state id to then plug into the geostore

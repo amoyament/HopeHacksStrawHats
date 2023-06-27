@@ -1,6 +1,9 @@
+//db pool (connection to database)
 const db = require("../config/config");
+//encryption library
 const bcrypt = require("bcrypt");
 class User {
+  //User constructor
   constructor(obj) {
     this.firstName = obj?.firstName;
     this.lastName = obj?.lastName;
@@ -9,6 +12,7 @@ class User {
     this.userName = obj?.userName;
   }
 
+  // parameterized query to get user by id
   static async getUserById(id) {
     try {
       const query = "SELECT * FROM users WHERE id = ?";
@@ -20,6 +24,8 @@ class User {
     }
   }
 
+
+  // parameterized query to get user by username
   static async getUserByUserName(userName) {
     try {
       const query = `SELECT * FROM users WHERE userName = ?`;
@@ -31,10 +37,12 @@ class User {
     }
   }
 
+  // compare password function using becrypt
   static async comparePassword(input, password) {
     return bcrypt.compare(input, password);
   }
 
+    // parameterized query to get create new user
   static async createUser(user) {
     try {
       const hashedPassword = await bcrypt.hash(user.password, 10);

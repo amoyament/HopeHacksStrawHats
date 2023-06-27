@@ -1,3 +1,4 @@
+
 const User = require("../models/user");
 
 exports.getLoginPage = async (req, res) => {
@@ -8,6 +9,8 @@ exports.getSignUpPage = async (req, res) => {
   res.render("user/sign-up");
 };
 
+// login functionality
+//notify user of incorrect credential
 exports.login = async (req, res) => {
   const user = new User(req.body);
   const [exist] = await User.getUserByUserName(user.userName);
@@ -35,6 +38,8 @@ exports.login = async (req, res) => {
   console.log(req.session);
 };
 
+//sign up functionality
+//notify user of duplicate username
 exports.signUp = async (req, res) => {
   const user = new User(req.body);
   const [duplicate] = await User.getUserByUserName(user.userName);

@@ -1,6 +1,9 @@
+//db pool (connection to database)
 const db = require("../config/config");
 
 class Contact {
+
+  //contact constructer
     constructor(obj) {
       this.email = obj?.email;
       this.phone = obj?.phone;
@@ -10,6 +13,7 @@ class Contact {
       this.name = obj?.name;
     }
 
+    // parameterized query to upload contact to database
     static async uploadContact(contact) {
         try {      
           const query =

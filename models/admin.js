@@ -1,7 +1,9 @@
+//db pool (connection to database)
 const db = require("../config/config");
-const bcrypt = require("bcrypt");
-class Admin {
 
+
+class Admin {
+//paramterzied query to retrieve admin by username
   static async getAdminByUserName(id) {
     try {
       const query = "SELECT * FROM admins WHERE username = ?";
@@ -12,7 +14,7 @@ class Admin {
       throw err;
     }
   }
-
+//paramterzied query to delete users by id
   static async deleteUserById(userId) {
     try {
       const query = `DELETE FROM users WHERE id = ?`;
@@ -23,7 +25,8 @@ class Admin {
       throw err;
     }
   }
-  
+  //paramterzied query to udpate username of users
+
   static async updateEmail(userId, newEmail) {
     try {
       const query = `UPDATE users SET email = ? WHERE id = ?`;
@@ -34,7 +37,8 @@ class Admin {
       throw err;
     }
   }
-  
+  //paramterzied query to retrieve all users from user table
+
   static async getAllUsers() {
     try {
       const query = `SELECT * FROM users`;

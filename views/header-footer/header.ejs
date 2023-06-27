@@ -45,4 +45,10 @@
           
         }
 
+        const nameTag = document.getElementById("displayname")
+        const name = '<%= name %>'
+        console.log(name)
+        if(name!='0'){
+          nameTag.innerText="Hello,   "+name
+        }
       </script>

@@ -2,10 +2,12 @@ const axios = require("axios");
 
 const apiKey = "ce4234ab80db2c15a72ff2396257df089601adf3";
 
+//load air page
 exports.getPage = async (req, res) => {
   res.render("airIndex");
 };
 
+//api call for air quality info
 exports.apiCall = async (req, res) => {
   const city = req.body.city;
 
