@@ -1,10 +1,21 @@
+<style>
+  #displayname{
+    color: #fff;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+  
+</style>
 <header class="header-area">
   <!-- site-navbar start -->
   <div class="navbar-area">
     <div class="nav-container">
       <nav class="site-navbar">
         <!-- site logo -->
-        <a href="/"><img class="logo" src="imgs/logo.png" alt="Forest Fighters logo" /></a>
+        <a href="/"><img class="logo" src="/imgs/logo.png" alt="Forest Fighters logo" /></a>
+        <label id="displayname"> </label>
 
         <!-- site menu/nav -->
         <ul>
@@ -24,12 +35,14 @@
   </div>
   <!-- navbar-area end -->
 </header>
-<script>
-  const tag = document.getElementById("user");
-  const isLoggedIn = Number("<%= user %>");
-  console.log(isLoggedIn, " outside");
-  if (isLoggedIn > 0) {
-    tag.innerHTML = '<a href="/signout"> Sign Out</a>';
-    console.log(isLoggedIn);
-  }
-</script>
+      <script>
+        const tag = document.getElementById("user")
+        const isLoggedIn = Number('<%= user %>')
+        console.log(isLoggedIn, " outside")
+        if(isLoggedIn>0){
+          tag.innerHTML='<a href="/signout"> Sign Out</a>'
+          console.log(isLoggedIn)
+          
+        }
+
+      </script>
