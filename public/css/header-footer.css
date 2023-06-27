@@ -416,7 +416,7 @@ h1 {
 @media (min-width: 600px) and (max-width: 800px) {
   /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
   .logo {
-    width: 22vw;
+    width: 15vw;
   }
 
   .footer-content {
