@@ -21,7 +21,7 @@ exports.apiCall = async (req, res) => {
   axios.get(`https://api.waqi.info/feed/${city}/?token=${apiKey}`).then((response) => {
     const data = response.data;
     if (data.status === "error") {
-      var notValid = `I'm sorry, "${city}" is not a valid state name. 🙁`;
+      var notValid = `I'm sorry, "${city}" is not a valid city name. 🙁`;
       res.render("airIndex", {
         notValid,
       });
