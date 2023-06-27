@@ -2,10 +2,12 @@
   margin: 0;
   font-family: "Source Sans 3";
 }
+
 .hero {
   position: relative;
   height: 500px;
 }
+
 .hero video {
   position: absolute;
   top: 0;
@@ -15,6 +17,7 @@
   object-fit: cover;
   z-index: 1;
 }
+
 .hero .overlay {
   position: absolute;
   top: 0;
@@ -34,20 +37,34 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 40px;
-  color: whitesmoke;
+  color: #faf3e6;
   text-align: center;
   z-index: 3;
 }
 /* Apply styles to the banner section */
 .banner {
-  background-color: #faf3e6; /* lighter shade of gray for a more subtle background */
-  padding: 60px 0;
+  background-color: #35572389;
+  padding: 3% 10%;
   text-align: center;
 }
 .banner h2 {
   font-size: 32px;
   margin-bottom: 60px;
+  color: #faf3e6;
 }
+
+.banner h4 {
+  color: #faf3e6;
+}
+
+.banner a {
+  text-decoration: none;
+}
+
+.banner p {
+  color: #5b1a04;
+}
+
 .banner-icons {
   display: flex;
   justify-content: space-between;
@@ -59,6 +76,7 @@
   color: inherit;
 }
 .banner-icon {
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,13 +88,14 @@
 .banner-icon i {
   font-size: 60px; /* makes the icons larger */
   margin-bottom: 15px;
-  color: #355723aa;
+  color: #5b1a04;
   transition: color 1s ease;
 }
 .banner-icon:hover i,
 .banner-icon:hover h4,
 .banner-icon:hover p {
-  color: #5b1a04;
+  color: #355723aa;
+  transition: color 1s ease;
 }
 .banner-icon h4 {
   font-size: 24px; /* increases the font size of the title */
@@ -95,8 +114,8 @@
 .mission {
   padding: 40px 0;
   text-align: center;
-  background-color: #355723aa;
-  color: whitesmoke;
+  background-color: #faf3e6;
+  color: #5b1a04;
 }
 .mission h2 {
   font-size: 24px;
@@ -105,6 +124,7 @@
 .mission p {
   font-size: 20px;
   line-height: 1.5;
+  margin: 1% 10%;
 }
 /* CSS for tablets and small desktops */
 @media (max-width: 992px) {
