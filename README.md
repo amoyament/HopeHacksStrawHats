@@ -16,8 +16,8 @@ To get you started with our application, you will need to follow the instruction
    - `node contactTable.js`
    - `node geoTable.js`
    - The user table will be created when you run the server file
-7. Run `node server.js` in your terminal to make the application go live on your local port 3000
-8. Open up your browser and in a new tab, type in `localhost:3000`
+7. Run `node server.js` in your terminal to make the application go live on your local port 300
+8. Open up your browser and in a new tab, type in `localhost:300`
 9. If you followed these instructions, it should take you to a page that looks something like the image below:
 ![Home Page](public/imgs/example.png)
 
