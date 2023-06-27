@@ -10,7 +10,7 @@
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.4.0",
-    "node": "^18.16.0"
+    "node": "^20.2.0"
   },
   "scripts": {
     "start": "node server.js"
