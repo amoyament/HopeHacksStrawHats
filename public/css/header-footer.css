@@ -15,7 +15,14 @@
   background-size: cover;
 }
 /* default css end */
+.footer-logo {
+  width: 20vw;
+  text-align: center;
+}
 
+.logo {
+  width: 12vw;
+}
 /* navbar regular css start */
 .navbar-area {
   border-bottom: 1px solid #5b1a04;
@@ -93,6 +100,9 @@ a.site-logo {
 @media screen and (max-width: 767px) {
   .container {
     max-width: 720px;
+  }
+  .logo {
+    width: 28vw;
   }
   /* navbar css for mobile start */
   .nav-toggler {
@@ -404,6 +414,10 @@ h1 {
 }
 @media (min-width: 600px) and (max-width: 800px) {
   /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+  .logo {
+    width: 22vw;
+  }
+
   .footer-content {
     margin-left: auto;
     margin-right: auto;
