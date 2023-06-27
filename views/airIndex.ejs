@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/apiStyle.css" />
+    <link rel="stylesheet" href="/css/header-footer.css">
+    <script src="/js/header.js"></script>
+
+    <title>AirQualityInfoPage</title>
+  </head>
+  <body>
+    <%- include('header-footer/header.ejs') %>
+
+    <div class="static-section">
+      <!-- This could also be a css background image for the hero title, decide when further -->
+      <img class="hero-image" src="../AirQualityAPI.jpg" alt="Image of smoggy city" />
+      <p class="info-blurb">
+        Air quality refers to the composition and cleanliness of the air we breathe. It is a vital
+        aspect of environmental health that directly impacts human well-being, ecosystems, and the
+        planet as a whole. Air pollution, caused by human activities like industrial emissions and
+        vehicle exhaust, poses serious health risks and harms ecosystems. It contributes to
+        respiratory diseases, cardiovascular issues, and premature death. Additionally, air
+        pollution damages biodiversity, causes acid rain, and contributes to climate change through
+        greenhouse gas emissions. Strict regulations, clean energy, sustainable transportation, and
+        public awareness are essential for combating air pollution and creating a healthier, more
+        sustainable future.
+      </p>
+      <p class="input-command">
+        Enter a state name below to learn about the air quality in your area!
+      </p>
+      <form class="" action="/air" method="post">
+        <input id="city" type="text" name="city" placeholder="City" required />
+        <!-- Whatever name you put on your input is what will be sent as the json key for your form -->
+        <button type="submit" name="button">Search</button>
+      </form>
+    </div>
+    <hr class="brown-hr" />
+    <div class="api-info">
+      <h2>Air Quality in <%= typeof city !== 'undefined' ? city : "" %></h2>
+      <div class="full-stats">
+        <div class="stats stats1">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3 class="aqi">Air Quality Index:</h3>
+          <p class="state-stats">
+            <%= typeof aqi !== 'undefined' ? aqi : "" %> AQI <div class="quality-box"></div>
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats2">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>Inhalable Particulate Matter:</h3>
+          <p class="state-stats">
+            <%= typeof particulateMatter !== 'undefined' ? particulateMatter : "" %> micrograms per
+            cubic meter of PM2.5 in the air
+          </p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats stats2">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3>What is inhalable particulate matter?</h3>
+          <p class="state-stats"> A fine particulate matter that can be inhaled and penetrate deep into the respiratory system.</p>
+        </div>
+        <hr class="green-hr" />
+        <div class="stats">
+          <!-- We have decided this is the square footage of tree loss -->
+          <h3 class="aqi">Air Quality Key:</h3>
+          <p class="state-stats">
+            0 - 50 AQI -- Good <div class="key-box" style="background-color: green;"></div>
+          </p>
+        </div>
+        <div class="stats">
+          <h3 class="aqi"></h3>
+          <p class="state-stats">
+            51 - 100 AQI -- Moderate <div class="key-box" style="background-color: yellow;"></div>
+          </p>
+        </div>
+        <div class="stats">
+          <h3 class="aqi"></h3>
+          <p class="state-stats">
+            101 - 150 AQI -- Unhealthy for Sensitive Groups<div class="key-box" style="background-color: orange;"></div>
+          </p>
+        </div>
+        <div class="stats">
+          <h3 class="aqi"></h3>
+          <p class="state-stats">
+            51 - 100 AQI  -- Unhealthy<div class="key-box" style="background-color: red;"></div>
+          </p>
+        </div>
+        <hr class="green-hr" />
+      </div>
+    </div>
+    <%- include('header-footer/footer.ejs') %>
+
+    <script>
+      const apiContent = document.getElementsByClassName("api-info")[0];
+      const qualityBox = document.getElementsByClassName("quality-box")[0];
+      var aqi = "<%= typeof aqi !== 'undefined' ? aqi : 0 %>";
+      if (aqi) {
+        console.log(aqi);
+        console.log(typeof aqi);
+      }
+      if (aqi == 0) {
+        apiContent.style.display = "none";
+      }
+      if (aqi !== 0 && aqi < 51){
+        qualityBox.style.backgroundColor = "green"
+      }else if (aqi > 50 && aqi <= 100){
+        qualityBox.style.backgroundColor = "yellow"
+      }else if (aqi >= 101 && aqi <= 150){
+        qualityBox.style.backgroundColor = "orange"
+      }else if (aqi > 151){
+        qualityBox.style.backgroundColor = "red"
+      }
+    </script>
+  </body>
+</html>

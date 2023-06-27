@@ -3,7 +3,7 @@ const User = require("../models/user");
 exports.getLoginPage = async (req, res) => {
   res.render("user/login");
 };
-
+ 
 exports.getSignUpPage = async (req, res) => {
   res.render("user/sign-up");
 };
@@ -30,7 +30,7 @@ exports.login = async (req, res) => {
     return;
   }
   req.session.user = exist.id;
-  req.session.name = exist.firstName + " " + exist.lastName;
+  req.session.name = exist.firstName
   res.redirect("/");
   console.log(req.session);
 };

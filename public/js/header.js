@@ -29,4 +29,7 @@ function navLinkClick() {
     navToggler.click();
   }
 }
+
+const isSigned = document.getElementById("user")
+
 }

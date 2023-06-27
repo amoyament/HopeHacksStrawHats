@@ -47,14 +47,14 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.use("/user", userRoutes);
-app.use("/loss-gain", lossGainRoutes);
-app.use("/contact", contactRoutes);
-app.use("/air", airRoutes);
-app.get("/map", (req, res) => {
-  res.render("map");
-});
-app.get("/signout", (req, res) => {
+app.use('/user', userRoutes)
+app.use('/loss-gain', lossGainRoutes)
+app.use('/contact', contactRoutes)
+app.use('/air', airRoutes)
+app.get("/map", (req,res)=>{
+  res.render("map")
+})
+app.get("/signout", (req, res)=>{
   req.session.destroy((err) => {
     if (err) {
       console.log(err);
@@ -62,9 +62,9 @@ app.get("/signout", (req, res) => {
       res.redirect("/");
     }
   });
-});
 
-app.use("/admin", adminRoutes);
+})
+app.use("/admin", adminRoutes)
 /*
 app.use('/loss-gain', lossGainRoutes)
 app.use('/air', airRoutes)
